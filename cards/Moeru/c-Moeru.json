@@ -7,7 +7,8 @@
             "life" : 1000,
             "resources" : {
                 "wood" : 200,
-                "stone" : 30
+                "stone" : 30,
+                "gold" : 50
             },
             "powers" : {
 
@@ -22,7 +23,8 @@
             "life" : 1200,
             "resources" : {
                 "wood" : 350,
-                "stone" : 50
+                "stone" : 50,
+                "gold" : 80
             },
             "powers" : {
 
@@ -37,7 +39,8 @@
             "life" : 1500,
             "resources" : {
                 "wood" : 500,
-                "stone" : 75
+                "stone" : 75,
+                "gold" : 115
             },
             "powers" : {
 
