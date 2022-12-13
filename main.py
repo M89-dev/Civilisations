@@ -27,9 +27,6 @@ class GamePlay():
             self.Percent_Bar(10)
             time.sleep(2)
             self.nombre_tour -= 1
-            
-    def Game_Rule(self):
-        print("")
         
     def Percent_Bar(self , tour, bar_len=50, title='Please wait'):
         percent_done = (bar_len / tour) + self.progress_bar
@@ -42,12 +39,21 @@ class GamePlay():
         togo_str = '░'*int(percent_finish)
 
         print(f'\t⏳{title}: [{done_str}{togo_str}] {percent_done}% done', end='\r')
+
+    def Get_Card(self):
+        pass
+
+    def Select_Card(self):
+        pass
+            
+    def Game_Rule(self):
+        print("")
+
+    def Ressources(self):
+        pass
+
+    def Score_civilasition(self):
+        pass
         
 game = GamePlay(3, 2, 10)
 game.Game_Main()
-
-# Je suis un message
-
-        
-    
-        
