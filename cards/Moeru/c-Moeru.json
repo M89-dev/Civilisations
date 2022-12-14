@@ -46,6 +46,22 @@
 
             },
             "unique" : true 
+        },
+
+        {
+            "class" : "Divin",
+            "passif" : false,
+            "civilisation" : "Empire Yonate",
+            "life" : 1500,
+            "resources" : {
+                "wood" : 800,
+                "stone" : 100,
+                "gold" : 150
+            },
+            "powers" : {
+
+            },
+            "unique" : true 
         }
     ]
 }
