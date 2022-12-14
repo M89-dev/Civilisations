@@ -15,3 +15,5 @@ def health(a : int):
     for i in range(3):
         print(int(round(a*(100+b)/100)))
         b += 30
+
+resources(500, 150, 50)
