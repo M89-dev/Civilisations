@@ -1,0 +1,31 @@
+{
+    "Stone age" : [
+        {
+            "Civilisation" : "Empire Yonate",
+            "Evolve_requirements" : {
+                "wood" : 275,
+                "stone" : 50,
+                "gold" : 25
+            },
+            "Hero" : ""
+        },
+        {
+            "Civilisation" : "Royaume de Ritchi",
+            "Evolve_requirements" : {
+                "wood" : 25,
+                "stone" : 275,
+                "gold" : 50
+            },
+            "Hero" : ""
+        },
+        {
+            "Civilisation" : "Démocratie Nokane",
+            "Evolve_requirements" : {
+                "wood" : 50,
+                "stone" : 25,
+                "gold" : 275
+            },
+            "Hero" : ""
+        }
+    ]
+}

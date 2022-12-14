@@ -1,18 +1,64 @@
 {    
     "Xan" : [
-    {
-        "class" : "Divin",
-        "passif" : true,
-        "civilisation" : "",
-        "life" : 1500,
-        "resources" : {
-            "wood" : 100,
-            "stone" : 300
-        },
-        "powers" : {
+        {
+            "class" : "Divin",
+            "passif" : true,
+            "civilisation" : "",
+            "life" : 1500,
+            "resources" : {
+                "wood" : 100,
+                "stone" : 300,
+                "gold" : 60
+            },
+            "powers" : {
 
+            },
+            "unique" : true
         },
-        "unique" : true
-    }
-]
+        {
+            "class" : "Divin",
+            "passif" : true,
+            "civilisation" : "",
+            "life" : 1500,
+            "resources" : {
+                "wood" : 180,
+                "stone" : 540,
+                "gold" : 108
+            },
+            "powers" : {
+
+            },
+            "unique" : true
+        },
+        {
+            "class" : "Divin",
+            "passif" : true,
+            "civilisation" : "",
+            "life" : 1500,
+            "resources" : {
+                "wood" : 268,
+                "stone" : 802,
+                "gold" : 160
+            },
+            "powers" : {
+
+            },
+            "unique" : true
+        },
+        {
+            "class" : "Divin",
+            "passif" : true,
+            "civilisation" : "",
+            "life" : 1500,
+            "resources" : {
+                "wood" : 366,
+                "stone" : 1095,
+                "gold" : 218
+            },
+            "powers" : {
+
+            },
+            "unique" : true
+        }
+    ]
 }
