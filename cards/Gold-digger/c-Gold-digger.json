@@ -1,0 +1,55 @@
+{    
+    "Gold-digger" : [
+        {
+            "class" : "farmer",
+            "passif" : true,
+            "civilisation" : false,
+            "life" : 150,
+            "resources" : {
+                "wood" : 0,
+                "stone" : 0,
+                "gold" : 100
+            },
+            "unique" : false
+        },
+
+        {
+            "class" : "farmer",
+            "passif" : true,
+            "civilisation" : false,
+            "life" : 180,
+            "resources" : {
+                "wood" : 0,
+                "stone" : 0,
+                "gold" : 180
+            },
+            "unique" : false
+        },
+
+        {
+            "class" : "farmer",
+            "passif" : true,
+            "civilisation" : false,
+            "life" : 225,
+            "resources" : {
+                "wood" : 0,
+                "stone" : 0,
+                "gold" : 268
+            },
+            "unique" : false
+        },
+        
+        {
+            "class" : "farmer",
+            "passif" : true,
+            "civilisation" : false,
+            "life" : 270,
+            "resources" : {
+                "wood" : 0,
+                "stone" : 0,
+                "gold" : 366
+            },
+            "unique" : false
+        }
+    ]
+}

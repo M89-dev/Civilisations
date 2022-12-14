@@ -9,7 +9,9 @@
 
     "Base" : [
         {
-            "Lumberjack" : "cards\\Lumberjack\\c-Lumberjack/json"    
+            "Lumberjack" : "cards\\Lumberjack\\c-Lumberjack.json",
+            "Stonecutter" : "cards\\Stonecutter\\c-Stonecutter.json",
+            "Gold-digger" : "cards\\Gold-digger\\c-Gold-digger.json"
         }
     ]
 }
