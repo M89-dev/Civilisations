@@ -7,7 +7,7 @@
                 "stone" : 50,
                 "gold" : 25
             },
-            "Hero" : ""
+            "Hero" : "c-Moeru.json"
         },
         {
             "Civilisation" : "Royaume de Ritchi",
@@ -16,7 +16,7 @@
                 "stone" : 275,
                 "gold" : 50
             },
-            "Hero" : ""
+            "Hero" : "c-Xan.json"
         },
         {
             "Civilisation" : "Démocratie Nokane",
@@ -25,7 +25,7 @@
                 "stone" : 25,
                 "gold" : 275
             },
-            "Hero" : ""
+            "Hero" : "c-Nori.json"
         }
     ]
 }

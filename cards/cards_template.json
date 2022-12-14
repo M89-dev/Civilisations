@@ -1,18 +1,19 @@
 {    
     "name" : [
-    {
-        "class" : "",
-        "passif" : true,
-        "civilisation" : "",
-        "life" : 0,
-        "resources" : {
-            "wood" : 0,
-            "stone" : 0
-        },
-        "powers" : {
+        {
+            "class" : "",
+            "passif" : true,
+            "civilisation" : "",
+            "life" : 0,
+            "resources" : {
+                "wood" : 0,
+                "stone" : 0,
+                "gold" : 0
+            },
+            "powers" : {
 
-        },
-        "unique" : true
-    }
-]
+            },
+            "unique" : true
+        }
+    ]
 }

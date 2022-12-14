@@ -1,0 +1,64 @@
+{    
+    "Nori" : [
+        {
+            "class" : "Divin",
+            "passif" : false,
+            "civilisation" : "Démocratie Nokane",
+            "life" : 1000,
+            "resources" : {
+                "wood" : 75,
+                "stone" : 50,
+                "gold" : 150
+            },
+            "powers" : {
+
+            },
+            "unique" : true
+        },
+        {
+            "class" : "Divin",
+            "passif" : false,
+            "civilisation" : "Démocratie Nokane",
+            "life" : 1000,
+            "resources" : {
+                "wood" : 135,
+                "stone" : 108,
+                "gold" : 270
+            },
+            "powers" : {
+
+            },
+            "unique" : true
+        },
+        {
+            "class" : "Divin",
+            "passif" : false,
+            "civilisation" : "Démocratie Nokane",
+            "life" : 1000,
+            "resources" : {
+                "wood" : 201,
+                "stone" : 160,
+                "gold" : 401
+            },
+            "powers" : {
+
+            },
+            "unique" : true
+        },
+        {
+            "class" : "Divin",
+            "passif" : false,
+            "civilisation" : "Démocratie Nokane",
+            "life" : 1000,
+            "resources" : {
+                "wood" : 274,
+                "stone" : 218,
+                "gold" : 548
+            },
+            "powers" : {
+
+            },
+            "unique" : true
+        }
+    ]
+}
