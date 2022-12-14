@@ -19,7 +19,7 @@
             "class" : "Divin",
             "passif" : true,
             "civilisation" : "Royaume de Ritchi",
-            "life" : 1500,
+            "life" : 1800,
             "resources" : {
                 "wood" : 180,
                 "stone" : 540,
@@ -34,7 +34,7 @@
             "class" : "Divin",
             "passif" : true,
             "civilisation" : "Royaume de Ritchi",
-            "life" : 1500,
+            "life" : 2250,
             "resources" : {
                 "wood" : 268,
                 "stone" : 802,
@@ -49,7 +49,7 @@
             "class" : "Divin",
             "passif" : true,
             "civilisation" : "Royaume de Ritchi",
-            "life" : 1500,
+            "life" : 2700,
             "resources" : {
                 "wood" : 366,
                 "stone" : 1095,

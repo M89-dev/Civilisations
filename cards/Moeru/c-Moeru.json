@@ -52,7 +52,7 @@
             "class" : "Divin",
             "passif" : false,
             "civilisation" : "Empire Yonate",
-            "life" : 1500,
+            "life" : 1800,
             "resources" : {
                 "wood" : 730,
                 "stone" : 109,

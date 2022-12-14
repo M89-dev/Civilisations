@@ -1,4 +1,4 @@
-def values(a : int, b : int, c : int):
+def resources(a : int, b : int, c : int):
     d = 100
     e = 80
     for i in range(4):
@@ -9,3 +9,9 @@ def values(a : int, b : int, c : int):
         d += 80
         e += 7.5
         
+def health(a : int):
+    b = 20
+    print(a)
+    for i in range(3):
+        print(int(round(a*(100+b)/100)))
+        b += 30

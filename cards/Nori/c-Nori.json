@@ -19,7 +19,7 @@
             "class" : "Divin",
             "passif" : false,
             "civilisation" : "Démocratie Nokane",
-            "life" : 1000,
+            "life" : 1200,
             "resources" : {
                 "wood" : 135,
                 "stone" : 108,
@@ -34,7 +34,7 @@
             "class" : "Divin",
             "passif" : false,
             "civilisation" : "Démocratie Nokane",
-            "life" : 1000,
+            "life" : 1500,
             "resources" : {
                 "wood" : 201,
                 "stone" : 160,
@@ -49,7 +49,7 @@
             "class" : "Divin",
             "passif" : false,
             "civilisation" : "Démocratie Nokane",
-            "life" : 1000,
+            "life" : 1800,
             "resources" : {
                 "wood" : 274,
                 "stone" : 218,
