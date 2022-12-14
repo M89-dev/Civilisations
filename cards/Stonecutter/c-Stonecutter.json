@@ -1,0 +1,55 @@
+{    
+    "Stonecutter" : [
+        {
+            "class" : "farmer",
+            "passif" : true,
+            "civilisation" : false,
+            "life" : 150,
+            "resources" : {
+                "wood" : 0,
+                "stone" : 100,
+                "gold" : 0
+            },
+            "unique" : false
+        },
+
+        {
+            "class" : "farmer",
+            "passif" : true,
+            "civilisation" : false,
+            "life" : 180,
+            "resources" : {
+                "wood" : 0,
+                "stone" : 180,
+                "gold" : 0
+            },
+            "unique" : false
+        },
+
+        {
+            "class" : "farmer",
+            "passif" : true,
+            "civilisation" : false,
+            "life" : 225,
+            "resources" : {
+                "wood" : 0,
+                "stone" : 268,
+                "gold" : 0
+            },
+            "unique" : false
+        },
+        
+        {
+            "class" : "farmer",
+            "passif" : true,
+            "civilisation" : false,
+            "life" : 270,
+            "resources" : {
+                "wood" : 0,
+                "stone" : 366,
+                "gold" : 0
+            },
+            "unique" : false
+        }
+    ]
+}
