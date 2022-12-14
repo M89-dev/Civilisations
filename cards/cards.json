@@ -1,4 +1,15 @@
 {
-    "Moeru" : "cards\\Moeru\\c-Moeru.json",
-    "Xan" : "cards\\Xan\\c-Xan.json"
+    "Heroes" : [
+        {
+            "Moeru" : "cards\\Moeru\\c-Moeru.json",
+            "Xan" : "cards\\Xan\\c-Xan.json",
+            "Nori" : "cards\\Nori\\c-Nori.json"
+        }
+    ],
+
+    "Base" : [
+        {
+            "Lumberjack" : "cards\\Lumberjack\\c-Lumberjack/json"    
+        }
+    ]
 }
