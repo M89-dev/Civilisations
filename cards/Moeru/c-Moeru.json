@@ -22,9 +22,9 @@
             "civilisation" : "Empire Yonate",
             "life" : 1200,
             "resources" : {
-                "wood" : 350,
-                "stone" : 50,
-                "gold" : 80
+                "wood" : 360,
+                "stone" : 54,
+                "gold" : 90
             },
             "powers" : {
 
@@ -38,9 +38,9 @@
             "civilisation" : "Empire Yonate",
             "life" : 1500,
             "resources" : {
-                "wood" : 500,
-                "stone" : 75,
-                "gold" : 115
+                "wood" : 535,
+                "stone" : 80,
+                "gold" : 134
             },
             "powers" : {
 
@@ -54,9 +54,9 @@
             "civilisation" : "Empire Yonate",
             "life" : 1500,
             "resources" : {
-                "wood" : 800,
-                "stone" : 100,
-                "gold" : 150
+                "wood" : 730,
+                "stone" : 109,
+                "gold" : 183
             },
             "powers" : {
 

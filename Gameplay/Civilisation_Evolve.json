@@ -3,7 +3,7 @@
         {
             "Civilisation" : "Empire Yonate",
             "Evolve_requirements" : {
-                "wood" : 300,
+                "wood" : 275,
                 "stone" : 50,
                 "gold" : 25
             },
@@ -13,7 +13,7 @@
             "Civilisation" : "Royaume de Ritchi",
             "Evolve_requirements" : {
                 "wood" : 25,
-                "stone" : 300,
+                "stone" : 275,
                 "gold" : 50
             },
             "Hero" : ""
@@ -23,7 +23,7 @@
             "Evolve_requirements" : {
                 "wood" : 50,
                 "stone" : 25,
-                "gold" : 300
+                "gold" : 275
             },
             "Hero" : ""
         }

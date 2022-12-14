@@ -21,9 +21,9 @@
             "civilisation" : "",
             "life" : 1500,
             "resources" : {
-                "wood" : 150,
-                "stone" : 450,
-                "gold" : 90
+                "wood" : 180,
+                "stone" : 540,
+                "gold" : 108
             },
             "powers" : {
 
@@ -36,9 +36,9 @@
             "civilisation" : "",
             "life" : 1500,
             "resources" : {
-                "wood" : 225,
-                "stone" : 700,
-                "gold" : 120
+                "wood" : 268,
+                "stone" : 802,
+                "gold" : 160
             },
             "powers" : {
 
@@ -51,9 +51,9 @@
             "civilisation" : "",
             "life" : 1500,
             "resources" : {
-                "wood" : 350,
-                "stone" : 1000,
-                "gold" : 180
+                "wood" : 366,
+                "stone" : 1095,
+                "gold" : 218
             },
             "powers" : {
 
