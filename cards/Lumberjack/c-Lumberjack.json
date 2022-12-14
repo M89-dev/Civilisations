@@ -1,0 +1,55 @@
+{    
+    "Lumberjack" : [
+        {
+            "class" : "farmer",
+            "passif" : true,
+            "civilisation" : false,
+            "life" : 150,
+            "resources" : {
+                "wood" : 100,
+                "stone" : 0,
+                "gold" : 0
+            },
+            "unique" : false
+        },
+
+        {
+            "class" : "farmer",
+            "passif" : true,
+            "civilisation" : false,
+            "life" : 180,
+            "resources" : {
+                "wood" : 180,
+                "stone" : 0,
+                "gold" : 0
+            },
+            "unique" : false
+        },
+
+        {
+            "class" : "farmer",
+            "passif" : true,
+            "civilisation" : false,
+            "life" : 225,
+            "resources" : {
+                "wood" : 268,
+                "stone" : 0,
+                "gold" : 0
+            },
+            "unique" : false
+        },
+        
+        {
+            "class" : "farmer",
+            "passif" : true,
+            "civilisation" : false,
+            "life" : 270,
+            "resources" : {
+                "wood" : 366,
+                "stone" : 0,
+                "gold" : 0
+            },
+            "unique" : false
+        }
+    ]
+}
