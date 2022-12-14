@@ -9,6 +9,7 @@
             },
             "Hero" : "c-Moeru.json"
         },
+
         {
             "Civilisation" : "Royaume de Ritchi",
             "Evolve_requirements" : {
@@ -18,6 +19,7 @@
             },
             "Hero" : "c-Xan.json"
         },
+
         {
             "Civilisation" : "Démocratie Nokane",
             "Evolve_requirements" : {
@@ -28,6 +30,7 @@
             "Hero" : "c-Nori.json"
         }
     ],
+
     "Iron age" : [
         {
             "Civilisation" : "Empire Yonate",
@@ -38,6 +41,7 @@
             },
             "Hero" : "c-Moeru.json"
         },
+
         {
             "Civilisation" : "Royaume de Ritchi",
             "Evolve_requirements" : {
@@ -47,6 +51,7 @@
             },
             "Hero" : "c-Xan.json"
         },
+        
         {
             "Civilisation" : "Démocratie Nokane",
             "Evolve_requirements" : {
