@@ -48,7 +48,7 @@ class cards():
         self.open(cards,age,"unique")
 
 
-cards1=cards("C:\\Users\\lduma\\Documents\\GitHub\\Civilisations\\cards\\Xan\\c-Xan.json")
+cards1=cards("")
 cards1.open_cards("Xan")
 cards1.open_class("Xan",0)
 cards1.open_passif("Xan",0)
