@@ -16,6 +16,6 @@ def health(a : int):
         print(int(round(a*(100+b)/100)))
         b += 30
 
-resources(100, 30, 0)
+resources(50, 10, 25)
 print("\n")
-health(1500)
+health(100)
