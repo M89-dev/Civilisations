@@ -1,59 +1,38 @@
-import os
-import json
-import time
+import pygame, os, sys
+from Music import Music_Manager
 
-class GamePlay():
-    def __init__(self, nombre_joueur, nombre_carte, nombre_tour):
-        self.nombre_joueur = nombre_joueur
-        self.nombre_carte = nombre_carte
-        self.nombre_tour = nombre_tour
-        self.progress_bar = 0
+pygame.init()
+clock = pygame.time.Clock()
+
+if not pygame.mixer:
+    print("Missin Music module")
+elif not pygame.font:
+    print("Missing Font module")
+
+class Game():
+    def __init__(self):
+        self.screen_widht = 1500
+        self.screen_height = 800
+        self.screen = pygame.display.set_mode((self.screen_widht, self.screen_height))
+
+        # Background music
+        # self.music = Music_Manager("bg_music.wav")
+        # self.music.play_music()
+        # self.music.set_volume(0.2)
+
+        self.music = Music_Manager()
+        self.music.load_playist("Playist1")
+
+    def run(self):
+
+        while True:
+            for events in pygame.event.get():
+                if events.type == pygame.QUIT:
+                    pygame.quit()
+                    sys.exit()
         
-    def get_nombre_joueur(self):
-        return self.nombre_joueur
-    
-    def get_nombre_carte(self):
-        return self.nombre_carte
-    
-    def get_nombre_tour(self):
-        return self.nombre_tour
-    
-    def Game_Main(self):
-        print("La partie va se derouler en ->")
-        print(f"Nombre de joueur {self.nombre_joueur}")
-        print(f"Nombre de tour {self.nombre_tour}")
-        
-        while self.nombre_tour > 0:
-            self.Percent_Bar(10)
-            time.sleep(2)
-            self.nombre_tour -= 1
-        
-    def Percent_Bar(self , tour, bar_len=50, title='Please wait'):
-        percent_done = (bar_len / tour) + self.progress_bar
-        percent_done = round(percent_done, 1)
-        
-        percent_finish = bar_len - percent_done
-        self.progress_bar += (bar_len / tour)
-    
-        done_str = '█'*int(percent_done)
-        togo_str = '░'*int(percent_finish)
+            pygame.display.update()
+            clock.tick(60)
 
-        print(f'\t⏳{title}: [{done_str}{togo_str}] {percent_done}% done', end='\r')
-
-    def Get_Card(self):
-        pass
-
-    def Select_Card(self):
-        pass
-            
-    def Game_Rule(self):
-        print("")
-
-    def Ressources(self):
-        pass
-
-    def Score_civilasition(self):
-        pass
-        
-game = GamePlay(3, 2, 10)
-game.Game_Main()
+game_civilisation = Game()
+game_civilisation.run()
