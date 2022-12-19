@@ -18,4 +18,4 @@ def health(a : int):
 
 resources(100, 0, 0)
 print("\n")
-health(300)
+health(450)

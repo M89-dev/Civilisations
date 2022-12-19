@@ -7,11 +7,13 @@
         }
     ],
 
-    "Base" : [
+    "Unites" : [
         {
             "Lumberjack" : "cards\\Lumberjack\\c-Lumberjack.json",
             "Stonecutter" : "cards\\Stonecutter\\c-Stonecutter.json",
-            "Gold-digger" : "cards\\Gold-digger\\c-Gold-digger.json"
+            "Gold-digger" : "cards\\Gold-digger\\c-Gold-digger.json",
+            "Troops" : "cards\\Troops\\c-Troops.json",
+            "Ram" : "cards\\Ram\\c-Ram.json"
         }
     ]
 }
