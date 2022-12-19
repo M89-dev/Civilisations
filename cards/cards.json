@@ -15,5 +15,11 @@
             "Troops" : "cards\\Troops\\c-Troops.json",
             "Ram" : "cards\\Ram\\c-Ram.json"
         }
+    ],
+
+    "Technologies" : [
+        {
+        "Rampart" : "cards\\Rampart\\c-Rampart.json"
+        }
     ]
 }
