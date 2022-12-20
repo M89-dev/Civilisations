@@ -1,37 +1,38 @@
-import pygame, os, glob, asyncio
+import pygame, os, glob
 
 pygame.mixer.init()
 
 class Music_Manager():
     def __init__(self):
-        self.link_music = None
-        self.infinite_music = None
         self.main_dir = os.path.split(os.path.abspath(__file__))[0]
 
-    def load_music(self, link_music, infinite = False):
-        main_dir = self.main_dir + "\\" + "assets\\music"
-        music_link = os.path.join(main_dir, link_music)
-
-        self.infinite_music = infinite
-
-        return pygame.mixer.Sound(music_link)
-
-    async def load_playist(self, link_playist):
+    def play_playist(self, link_playist, volume_music):
         main_dir = self.main_dir + "\\" + "assets\\music"
         music_link = os.path.join(main_dir, link_playist)
 
         list_music = glob.glob(glob.escape(music_link) + "/*.wav")
 
-        for music in list_music:
-            self.link_music = pygame.mixer.Sound(music)
-            self.play_music()
-            await asyncio.sleep(self.link_music.get_length())
+        while len(list_music) > 0:
+        
+            pygame.mixer.music.load(list_music[0])
+            pygame.mixer.music.set_volume(volume_music)
+            pygame.mixer.music.play()
+            list_music.pop(0)
 
-    def play_music(self):
-        if self.link_music:
-            self.link_music.play()
+            pygame.mixer.music.queue(list_music[0])
+            list_music.pop(0)
+
+    def play_music(self, link_music, volume_music, infinite_music = False):
+        main_dir = self.main_dir + "\\" + "assets\\music"
+        music_link = os.path.join(main_dir, link_music)
+
+        pygame.mixer.music.load(music_link)
+        pygame.mixer.music.set_volume(volume_music)
+
+        if infinite_music:
+            pygame.mixer.music.play(1)
         else:
-            print("No music loaded")
+            pygame.mixer.music.play(0)
 
     def set_volume(self, volume):
         self.link_music.set_volume(volume)
