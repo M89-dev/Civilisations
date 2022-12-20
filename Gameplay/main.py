@@ -19,7 +19,7 @@ class Game():
 
         # Background music
         self.music = Music_Manager()
-        self.music.play_music("MURDERNIGHT.wav", 0.2, False)
+        self.music.play_music("bg_music.wav", 0.1, False)
 
         # Playist music
         # self.music = Music_Manager()
