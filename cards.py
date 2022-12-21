@@ -17,10 +17,17 @@ class cards():
         with open(self.lien) as json_file:
             data = json.load(json_file)
             return data
+    
+    def manager_link(self):
+        link_list = str(self.lien).split("\\\\")
+        new_link = ''
 
+        for cell in range(len(link_list)):
+            new_link += link_list[cell] + '\\'
+            print(new_link)
 
-
-cards1=cards("C:\\Users\\lduma\\Documents\\GitHub\\Civilisations\\cards\\Xan\\c-Xan.json")
+cards1=cards("Cards\Xan\c-Xan.json")
+cards1.manager_link()
 print(cards1.open_cards())
 print(cards1.open("Xan", 0, "class"))
 print(cards1.open("Xan",0, "passif"))
