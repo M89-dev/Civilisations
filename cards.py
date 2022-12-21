@@ -7,53 +7,26 @@ class cards():
         self.lien = json_link
 
 
-    def open(self, cards, age, type):
+    def open(self, cards, age, type:str):
         with open(self.lien) as json_file:
             data = json.load(json_file)
-            print(data[cards][age][type])
+            return (data[cards][age][type])
 
 
-    def open_cards(self, cards):
+    def open_cards(self):
         with open(self.lien) as json_file:
             data = json.load(json_file)
-            for i in data[cards]:
-                print(i)
+            return data
 
 
-    def open_class(self, cards, age):
-        self.open(cards, age, "class")
 
+cards1=cards("C:\\Users\\lduma\\Documents\\GitHub\\Civilisations\\cards\\Xan\\c-Xan.json")
+print(cards1.open_cards())
+print(cards1.open("Xan", 0, "class"))
+print(cards1.open("Xan",0, "passif"))
+print(cards1.open("Xan", 0, "civilisation"))
+print(cards1.open("Xan", 0, "life"))
+print(cards1.open("Xan", 0, "resources"))
+print(cards1.open("Xan", 0, "powers"))
+print(cards1.open("Xan", 0, "unique"))
 
-    def open_passif(self, cards, age):
-        self.open(cards,age,"passif")
-
-
-    def open_civilisation(self,cards, age):
-        self.open(cards,age,"civilisation")
-
-
-    def open_life(self,cards, age):
-        self.open(cards,age,"life")
-
-
-    def open_resources(self,cards, age):
-        self.open(cards,age,"resources")
-
-
-    def open_powers(self,cards, age):
-        self.open(cards,age,"powers")
-
-
-    def open_unique(self,cards, age):
-        self.open(cards,age,"unique")
-
-
-cards1=cards("")
-cards1.open_cards("Xan")
-cards1.open_class("Xan",0)
-cards1.open_passif("Xan",0)
-cards1.open_civilisation("Xan",0)
-cards1.open_life("Xan",0)
-cards1.open_resources("Xan",0)
-cards1.open_powers("Xan",0)
-cards1.open_unique("Xan",0)
