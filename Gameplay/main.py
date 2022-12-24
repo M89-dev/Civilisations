@@ -100,7 +100,7 @@ class Game():
                     sys.exit()
                 
                 if events.type == pygame.MOUSEBUTTONDOWN:
-                    self.player.verify_color()
+                    self.player.recovery_color()
                     self.player.group_card_player.update()
 
             self.screen.blit(self.imgae_board, (0, 0))

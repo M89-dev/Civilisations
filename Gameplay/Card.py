@@ -15,8 +15,6 @@ class Card_Manager(pygame.sprite.Sprite):
         self.json_dir = os.path.join(self.main_dir, "assets\\evolution")
         self.link_evolve_file = os.path.join(self.json_dir, "Civilisation_Evolve.json")
 
-        self.get_random_civilisations()
-
     def change_color(self):
         self.image.fill((0, 0, 255))
 
