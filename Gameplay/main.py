@@ -108,8 +108,8 @@ class Game():
             self.player.group_card_player.draw(self.screen)
             self.bot.group_card_bot.draw(self.screen)
 
-            self.player.evolution_bar(self.screen)
-            self.player.update_bar()
+            # self.player.evolution_bar(self.screen)
+            # self.player.update_bar()
 
             pygame.display.update()
             clock.tick(60)

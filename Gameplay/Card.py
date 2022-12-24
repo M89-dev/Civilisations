@@ -13,7 +13,9 @@ class Card_Manager(pygame.sprite.Sprite):
 
         self.main_dir = os.path.split(os.path.abspath(__file__))[0]
         self.json_dir = os.path.join(self.main_dir, "assets\\evolution")
+
         self.link_evolve_file = os.path.join(self.json_dir, "Civilisation_Evolve.json")
+        self.link_card = os.path.join(self.json_dir, "cards.json")
 
     def change_color(self):
         self.image.fill((0, 0, 255))
@@ -27,11 +29,12 @@ class Card_Manager(pygame.sprite.Sprite):
         if self.rect.collidepoint(mouse_pos):
             self.change_color()
 
-    # def get_random_civilisations(self):
-    #     with open(self.link_evolve_file) as json_file:
-    #         data = json.load(json_file)
-    #         for civilisation in data:
-    #             print(civilisation)
+    def random_cards(self):
+     with open(self.link_card) as json_file:
+            data_file = json.load(json_file)
+            nb_type = random.choice(list(data_file.keys()))
+
+            return(random.choice(list(data_file[nb_type][0].keys())))
 
     def update(self):
         self.click_card()

@@ -1,5 +1,5 @@
 import pygame
-from Card import Card_Manager
+from Card import Card_Manager, Cards
 
 card_list = []
 
@@ -18,6 +18,14 @@ class Player():
         self.wood = 0
         self.stone = 0
         self.gold = 0
+
+        self.get_card()
+
+    def get_card(self):
+        card1 = Card_Manager(100, 100)
+        value_card = card1.random_cards()
+
+        card_info = Cards(value_card)
 
     def recovery_color(self):
         for card in card_list:

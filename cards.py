@@ -33,8 +33,6 @@ class cards():
             for l in data.keys():
                 return l
 
-
-
 def random_cards():
      with open("cards\\cards.json") as json_file:
             data = json.load(json_file)
