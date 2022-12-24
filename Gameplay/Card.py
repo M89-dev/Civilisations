@@ -1,4 +1,4 @@
-import pygame, random, json
+import pygame, random, json, os
 
 class Card_Manager(pygame.sprite.Sprite):
     def  __init__(self, pos_x, pos_y):
@@ -6,12 +6,16 @@ class Card_Manager(pygame.sprite.Sprite):
         self.screen = pygame.display.get_window_size()
         self.image = pygame.Surface([100, 200])
         self.image.fill((0, 0, 0))
-        self.belong_card = None
 
         self.rect = self.image.get_rect()
         self.rect.bottom = self.screen[1] - pos_y
-
         self.rect.x = pos_x + self.screen[0] / 2 - 150
+
+        self.main_dir = os.path.split(os.path.abspath(__file__))[0]
+        self.json_dir = os.path.join(self.main_dir, "assets\\evolution")
+        self.link_evolve_file = os.path.join(self.json_dir, "Civilisation_Evolve.json")
+
+        self.get_random_civilisations()
 
     def change_color(self):
         self.image.fill((0, 0, 255))
@@ -25,59 +29,56 @@ class Card_Manager(pygame.sprite.Sprite):
         if self.rect.collidepoint(mouse_pos):
             self.change_color()
 
+    # def get_random_civilisations(self):
+    #     with open(self.link_evolve_file) as json_file:
+    #         data = json.load(json_file)
+    #         for civilisation in data:
+    #             print(civilisation)
+
     def update(self):
         self.click_card()
 
 class Cards():
-    def __init__(self,json_link):
-        self.lien = json_link
+    def __init__(self, name_file):
+        self.json_dir = os.path.join(os.getcwd(), "cards")
+        self.name_card = name_file
 
-    def manager_link(self):
-        link_list = str(self.lien).split("\\\\")
-        new_link = ''
+        self.name_json = ""
+        self.link_json = os.path.join(self.manager_link(name_file), self.name_json)
 
-        for cell in range(len(link_list)):
-            new_link += link_list[cell] + '\\'
-            print(new_link)
+    def manager_link(self, name_file):
+        self.name_json = f"c-{name_file}.json"
+        return os.path.join(self.json_dir, name_file)
 
-    def open(self, cards, age, type):
-        with open(self.lien) as json_file:
-            data = json.load(json_file)
-            if type(data[cards][age][type]) == dict or list:
-                for element in data[cards][age][type]:
-                    print(element)
-            else:
-                return data[cards][age][type]
+    def open(self, age_card, type):
+        with open(self.link_json) as json_file:
+            data_file = json.load(json_file)
 
-    def open_cards(self, cards):
-        with open(self.lien) as json_file:
-            data = json.load(json_file)
-            for i in data[cards]:
-                print(i)
+            return data_file[self.name_card][age_card][type]
 
-    def open_class(self, cards, age):
-        self.open(cards, age, "class")
+    def open_cards(self):
+        with open(self.link_json) as json_file:
+            data_file = json.load(json_file)
 
+            return json.dumps(data_file, indent=4)
 
-    def open_passif(self, cards, age):
-        self.open(cards,age,"passif")
+    def open_class(self, age_card):
+        return self.open(age_card, "class")
 
+    def open_passif(self, age_card):
+        return self.open(age_card,"passif")
 
-    def open_civilisation(self,cards, age):
-        self.open(cards,age,"civilisation")
+    def open_civilisation(self, age_card):
+        return self.open(age_card,"civilisation")
 
+    def open_life(self, age_card):
+        return self.open(age_card,"life")
 
-    def open_life(self,cards, age):
-        self.open(cards,age,"life")
+    def open_resources(self, age_card):
+        return self.open(age_card,"resources")
 
+    def open_powers(self, age_card):
+        return self.open(age_card,"powers")
 
-    def open_resources(self,cards, age):
-        self.open(cards,age,"resources")
-
-
-    def open_powers(self,cards, age):
-        self.open(cards,age,"powers")
-
-
-    def open_unique(self,cards, age):
-        self.open(cards,age,"unique")
+    def open_unique(self, age_card):
+        return self.open(age_card,"unique")
