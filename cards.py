@@ -13,7 +13,6 @@ class cards():
             data = json.load(json_file)
             return (data[cards][age][type])
 
-
     def open_cards(self):
         with open(self.lien) as json_file:
             data = json.load(json_file)
@@ -31,7 +30,7 @@ def random_cards():
      with open("cards\\cards.json") as json_file:
             data = json.load(json_file)
             nb_type = random.choice(list(data.keys()))
-            return( random.choice(list(data[nb_type][0].values())))
+            return(random.choice(list(data[nb_type][0].values())))
 
 
 cards1=cards("Cards\Xan\c-Xan.json")
