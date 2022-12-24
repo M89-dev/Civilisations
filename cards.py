@@ -26,6 +26,15 @@ class cards():
             new_link += link_list[cell] + '\\'
             print(new_link)
 
+
+    def name(self):
+        with open(self.lien) as json_file:
+            data = json.load(json_file)
+            for l in data.keys():
+                return l
+
+
+
 def random_cards():
      with open("cards\\cards.json") as json_file:
             data = json.load(json_file)
@@ -33,13 +42,11 @@ def random_cards():
             return(random.choice(list(data[nb_type][0].values())))
 
 
-cards1=cards("Cards\Xan\c-Xan.json")
+cards1=cards(random_cards())
 print(cards1.open_cards())
-print(cards1.open("Xan", 0, "class"))
-print(cards1.open("Xan",0, "passif"))
-print(cards1.open("Xan", 0, "civilisation"))
-print(cards1.open("Xan", 0, "life"))
-print(cards1.open("Xan", 0, "resources"))
-print(cards1.open("Xan", 0, "powers"))
-print(cards1.open("Xan", 0, "unique"))
-print(random_cards())
+print(cards1.open(cards1.name(), 0, "class"))
+print(cards1.open(cards1.name(),0, "passif"))
+print(cards1.open(cards1.name(), 0, "civilisation"))
+print(cards1.open(cards1.name(), 0, "life"))
+print(cards1.open(cards1.name(), 0, "resources"))
+print(cards1.open(cards1.name(), 0, "unique"))

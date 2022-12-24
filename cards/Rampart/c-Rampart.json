@@ -1,0 +1,52 @@
+{    
+    "Rampart" : [
+        {
+            "class" : "Technologies",
+            "passif" : true,
+            "civilisation" : false,
+            "life" : 1500,
+            "resources" : {
+                "wood" : -100,
+                "stone" : -30,
+                "gold" : 0
+            },
+            "unique" : true
+        },
+        {
+            "class" : "Technologies",
+            "passif" : true,
+            "civilisation" : false,
+            "life" : 1800,
+            "resources" : {
+                "wood" : -180,
+                "stone" : -54,
+                "gold" : 0
+            },
+            "unique" : true
+        },
+        {
+            "class" : "Technologies",
+            "passif" : true,
+            "civilisation" : false,
+            "life" : 2250,
+            "resources" : {
+                "wood" : -268,
+                "stone" : -80,
+                "gold" : 0
+            },
+            "unique" : true
+        },
+        {
+            "class" : "Technologies",
+            "passif" : true,
+            "civilisation" : false,
+            "life" : 1500,
+            "resources" : {
+                "wood" : -366,
+                "stone" : -109,
+                "gold" : 0
+            },
+            "unique" : true
+        }
+    ]
+}

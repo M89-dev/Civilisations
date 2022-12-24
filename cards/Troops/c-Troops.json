@@ -1,0 +1,52 @@
+{    
+    "Troops" : [
+        {
+            "class" : "attacker",
+            "passif" : false,
+            "civilisation" : false,
+            "life" : 300,
+            "resources" : {
+                "wood" : 0,
+                "stone" : 0,
+                "gold" : 0
+            },
+            "unique" : false
+        },
+        {
+            "class" : "attacker",
+            "passif" : false,
+            "civilisation" : false,
+            "life" : 360,
+            "resources" : {
+                "wood" : 0,
+                "stone" : 0,
+                "gold" : 0
+            },
+            "unique" : false
+        },
+        {
+            "class" : "attacker",
+            "passif" : false,
+            "civilisation" : false,
+            "life" : 450,
+            "resources" : {
+                "wood" : 0,
+                "stone" : 0,
+                "gold" : 0
+            },
+            "unique" : false
+        },
+        {
+            "class" : "attacker",
+            "passif" : false,
+            "civilisation" : false,
+            "life" : 540,
+            "resources" : {
+                "wood" : 0,
+                "stone" : 0,
+                "gold" : 0
+            },
+            "unique" : false
+        }
+    ]
+}
