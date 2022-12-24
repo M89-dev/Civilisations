@@ -28,7 +28,7 @@ class Card_Manager(pygame.sprite.Sprite):
     def update(self):
         self.click_card()
 
-class cards():
+class Cards():
     def __init__(self,json_link):
         self.lien = json_link
 

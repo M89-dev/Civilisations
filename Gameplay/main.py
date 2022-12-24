@@ -3,53 +3,74 @@ from Music import Music_Manager
 from Player import Player
 from Bot import Bot
 
+# Pygame initial command (True)
 pygame.init()
 clock = pygame.time.Clock()
-main_dir = os.path.split(os.path.abspath(__file__))[0] + "\\" + "assets\\image"
+pygame.display.set_caption("Civilisations")
 
+main_dir = os.path.split(os.path.abspath(__file__))[0]
+image_dir = main_dir + "\\" + "assets\\image"
+music_dir = main_dir + "\\" + "assets\\music"
+font_dir = main_dir + "\\" + "assets\\font"
+
+# Check import of initial package pygame (True)
 if not pygame.mixer:
     print("Missin Music module")
 elif not pygame.font:
     print("Missing Font module")
 
+# Class Game display pygame
 class Game():
     def __init__(self):
         self.screen_widht = 1500
         self.screen_height = 800
         self.screen = pygame.display.set_mode((self.screen_widht, self.screen_height))
-        self.game_set = "intro"
+        self.game_set = "game_menu"
+
+        # Initilization of bot and player
         self.player = Player()
         self.bot = Bot()
+
+        # Generate the principle card of game
+        self.game_card()
+
+        # Generate the game assets
+        self.intro_assets()
         self.game_assets()
 
-        # Background music
-        self.music = Music_Manager()
-        self.music.play_music("Audiomachine - By the Hand of the Mortal.wav", 0.1, False)
-
         # Playist music
-        # self.music = Music_Manager()
-        # self.music.play_playist("Playist1", 0.2)
+        self.playist_bg = Music_Manager()
+        self.playist_bg.play_playist("Playist1", 0.2)
 
+    # Function create the card for Player and Bot
+    def game_card(self):
+        for number_card in range(3):
+            self.player.add_card(120 * number_card, 0)
+            self.bot.add_card(120 * number_card, 600)     
+
+    # Function create the principle game assets
     def game_assets(self):
-        for i in range(3):
-            self.player.add_card(120 * i, 0)
+        link_board = os.path.join(image_dir, "test.jpg")
+        self.imgae_board = pygame.image.load(link_board)
+        self.imgae_board = pygame.transform.scale(self.imgae_board, (1500, 800)) 
 
-        for i in range(3):
-            self.bot.add_card(120 * i, 300)
-
+    # Function create the principle intro assets
     def intro_assets(self):
-        lien_bg = os.path.join(main_dir, "bg_image.jpg")
-        self.imgae_bg = pygame.image.load(lien_bg)
+        link_bg = os.path.join(image_dir, "bg_image.jpg")
+        self.imgae_bg = pygame.image.load(link_bg)
         self.imgae_bg = pygame.transform.scale(self.imgae_bg, (1510, 790))
 
-        lien_button = os.path.join(main_dir, "button_play.png")
-        self.button_play = pygame.image.load(lien_button)
+        link_button = os.path.join(image_dir, "button_play.png")
+        self.button_play = pygame.image.load(link_button)
+        self.button_play = pygame.transform.scale(self.button_play, (600, 100))
         self.button_play_rect = self.button_play.get_rect(center = (1500/2, 800/2 + 50))
 
-        text_font = pygame.font.Font(None, 52)
-        self.text_render = text_font.render("Civilisations", False, (255, 255, 255))
+        font_link = os.path.join(font_dir, "PressStart2P-Regular.ttf")
+        intro_text_font = pygame.font.Font(font_link, 80)
+        self.text_render = intro_text_font.render("Civilisations", False, (255, 255, 255))
 
-    def intro(self):
+    # Function create the game Menu
+    def game_menu(self):
         while True:
             for events in pygame.event.get():
                 if events.type == pygame.QUIT:
@@ -62,15 +83,15 @@ class Game():
                         self.game_set = "game_playing"
                         self.manager_game()
 
-            self.intro_assets()
-
             self.screen.blit(self.imgae_bg, (0, 0))
+
             self.screen.blit(self.button_play, self.button_play_rect)
-            self.screen.blit(self.text_render, (self.screen_widht/2 - 120, 50))
+            self.screen.blit(self.text_render, (self.screen_widht/2 - 500, 50))
         
             pygame.display.update()
             clock.tick(60)
 
+    # Function create the game Playning
     def game_playing(self):
         while True:
             for events in pygame.event.get():
@@ -82,10 +103,13 @@ class Game():
                     self.player.verify_color()
                     self.player.group_card_player.update()
 
-            self.screen.fill((41, 25, 123))
+            self.screen.blit(self.imgae_board, (0, 0))
 
             self.player.group_card_player.draw(self.screen)
             self.bot.group_card_bot.draw(self.screen)
+
+            self.player.evolution_bar(self.screen)
+            self.player.update_bar()
 
             pygame.display.update()
             clock.tick(60)
@@ -94,7 +118,8 @@ class Game():
         if self.game_set == "game_playing":
             self.game_playing()
         else:
-            self.intro()
+            self.game_menu()
 
-game_civilisation = Game()
-game_civilisation.manager_game()
+if __name__ == "__main__":
+    game_civilisation = Game()
+    game_civilisation.manager_game()
