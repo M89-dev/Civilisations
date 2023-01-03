@@ -17,3 +17,10 @@ Your gameplay doesn't have to be exactly the same but will be influenced.
 
 ## Lore
 
+
+
+## Contributors  
+
+**"Head developer" -** [Chocolates_ore](https://www.github.com/M89-dev)  
+**"Game master / developer" -** [MOERUYONAKI](https://www.github.com/MOERUYONAKI)  
+**"Developer" -** [Xanark](https://www.github.com/Xanark)  
