@@ -17,6 +17,7 @@ The rounds are divided in 3 steps :
 > The draw to have three cards in your hand  
 > The choice of the cards you will place in the action place  
 > The action : skip, farm or attack  
+
 The draw give to the player random cards in his deck for him to have three cards.  
 During the choice, the player can put down unites, use some technologies or just wait.  
 The last step of the round, the action, let the player choose to wait, attack or farm with the unites in the action place.  
