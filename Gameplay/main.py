@@ -39,8 +39,8 @@ class Game():
         self.game_assets()
 
         # Playist music
-        self.playist_bg = Music_Manager()
-        self.playist_bg.play_playist("Playist1", 0.2)
+        # self.playist_bg = Music_Manager()
+        # self.playist_bg.play_playist("Playist_bg", 0.2)
 
     # Function create the card for Player and Bot
     def game_card(self):
@@ -52,7 +52,7 @@ class Game():
     def game_assets(self):
         link_board = os.path.join(image_dir, "test.jpg")
         self.imgae_board = pygame.image.load(link_board)
-        self.imgae_board = pygame.transform.scale(self.imgae_board, (1500, 800)) 
+        self.imgae_board = pygame.transform.scale(self.imgae_board, (1500, 800))
 
     # Function create the principle intro assets
     def intro_assets(self):
@@ -68,6 +68,11 @@ class Game():
         font_link = os.path.join(font_dir, "PressStart2P-Regular.ttf")
         intro_text_font = pygame.font.Font(font_link, 80)
         self.text_render = intro_text_font.render("Civilisations", False, (255, 255, 255))
+
+    def deck_assets(self):
+        link_board = os.path.join(image_dir, "test.jpg")
+        self.imgae_board = pygame.image.load(link_board)
+        self.imgae_board = pygame.transform.scale(self.imgae_board, (1500, 800))
 
     # Function create the game Menu
     def game_menu(self):
@@ -108,8 +113,11 @@ class Game():
             self.player.group_card_player.draw(self.screen)
             self.bot.group_card_bot.draw(self.screen)
 
-            # self.player.evolution_bar(self.screen)
-            # self.player.update_bar()
+            self.player.evolution_bar_assest(self.screen)
+            self.player.health_bar_assest(self.screen)
+
+            self.player.card_not_visible(self.screen)
+            self.player.card_visible(self.screen)
 
             pygame.display.update()
             clock.tick(60)
