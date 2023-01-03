@@ -83,3 +83,52 @@ class Cards():
 
     def open_unique(self, age_card):
         return self.open(age_card,"unique")
+
+class Pile(pygame.sprite.Sprite):
+    def __init__(self):
+        super().__init__()
+        self.surface = pygame.display.get_surface()
+        self.screen = pygame.display.get_window_size()
+        self.image = pygame.Surface([100, 200])
+        self.image.fill((255, 255, 255))
+
+        self.rect = self.image.get_rect()
+        self.rect.bottom = self.screen[1] - 80
+        self.rect.right = self.screen[0] - 30
+
+        self.visible = False
+        self.total_card = 30
+
+    def if_visible(self):
+        return self.visible
+
+    def get_card(self):
+        self.total_card -= 1
+
+    def text_card(self):
+        font_text = pygame.font.Font(None, 40)
+        render_text = font_text.render(f"{self.total_card}", False, "black")
+        self.surface.blit(render_text, (self.rect.x + 35, self.rect.y + 90))
+
+    def lenght_card(self):
+        if self.total_card <= 0:
+            print("Plus aucune carte")
+
+    def update(self):
+        self.lenght_card()
+
+class Trash(pygame.sprite.Sprite):
+    def __init__(self):
+        super().__init__()
+        self.screen = pygame.display.get_window_size()
+        self.image = pygame.Surface([100, 200])
+        self.image.fill((255, 255, 255))
+
+        self.rect = self.image.get_rect()
+        self.rect.bottom = self.screen[1] - 80
+        self.rect.left = 20
+
+        self.visible = False
+
+    def if_visible(self):
+        return self.visible
