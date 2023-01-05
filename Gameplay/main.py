@@ -2,6 +2,7 @@ import pygame, os, sys
 from Music import Music_Manager
 from Player import Player
 from Bot import Bot
+from Deck import DeckCard
 
 # Pygame initial command (True)
 pygame.init()
@@ -12,6 +13,8 @@ main_dir = os.path.split(os.path.abspath(__file__))[0]
 image_dir = main_dir + "\\" + "assets\\image"
 music_dir = main_dir + "\\" + "assets\\music"
 font_dir = main_dir + "\\" + "assets\\font"
+
+card_deck = ["card1", "card2", "card3", "card4", "card5"]
 
 # Check import of initial package pygame (True)
 if not pygame.mixer:
@@ -25,17 +28,19 @@ class Game():
         self.screen_widht = 1500
         self.screen_height = 800
         self.screen = pygame.display.set_mode((self.screen_widht, self.screen_height))
-        self.game_set = "game_menu"
+        self.game_set = "deck_assets"
 
         # Initilization of bot and player
         self.player = Player()
         self.bot = Bot()
+        self.deck = DeckCard(card_deck)
 
         # Generate the principle card of game
         self.game_card()
 
         # Generate the game assets
         self.intro_assets()
+        self.deck_assets()
         self.game_assets()
 
         # Playist music
@@ -74,6 +79,21 @@ class Game():
         self.imgae_board = pygame.image.load(link_board)
         self.imgae_board = pygame.transform.scale(self.imgae_board, (1500, 800))
 
+        self.deck.add_card()
+
+    def game_deck(self):
+        while True:
+            for events in pygame.event.get():
+                if events.type == pygame.QUIT:
+                    pygame.quit()
+                    sys.exit()
+
+            self.screen.blit(self.imgae_board, (0, 0))
+            self.deck.deck_group.draw(self.screen)
+
+            pygame.display.update()
+            clock.tick(60)
+                
     # Function create the game Menu
     def game_menu(self):
         while True:
@@ -125,6 +145,8 @@ class Game():
     def manager_game(self):
         if self.game_set == "game_playing":
             self.game_playing()
+        elif self.game_set == "deck_assets":
+            self.game_deck()
         else:
             self.game_menu()
 
