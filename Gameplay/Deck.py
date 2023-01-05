@@ -1,4 +1,8 @@
-import pygame, math
+import pygame, os
+
+deck_list = []
+main_dir = os.path.split(os.path.abspath(__file__))[0]
+font_dir = main_dir + "\\" + "assets\\font"
 
 class DeckCard(pygame.sprite.Sprite):
     def __init__(self, list_deck):
@@ -12,12 +16,15 @@ class DeckCard(pygame.sprite.Sprite):
         self.list_deck = list_deck
         self.deck_group = pygame.sprite.Group()
 
-        # self.middle_deck = self.get_middle()
-
         self.right_deck = 0
         self.left_deck = 0
         
         self.rect.center = (self.screen[0] // 2, self.screen[1] // 2)
+
+    def text_deck(self):
+        font_link = os.path.join(font_dir, "PressStart2P-Regular.ttf")
+        intro_text_font = pygame.font.Font(font_link, 80)
+        self.text_render = intro_text_font.render("Civilisations", False, (255, 255, 255))
 
     def change_color(self):
         self.image.fill((0, 0, 255))
@@ -41,6 +48,7 @@ class DeckCard(pygame.sprite.Sprite):
             deck.rect.left += self.left_deck
             self.left_deck -= 150
 
+        deck_list.append(deck)
         self.deck_group.add(deck)
 
     def get_indice(self, number):
@@ -61,10 +69,18 @@ class DeckCard(pygame.sprite.Sprite):
             self.left_deck = -150
 
             deck = DeckCard(self.list_deck)
+            deck_list.append(deck)
             self.deck_group.add(deck)
 
             for deck_number in range(len(self.list_deck) - 1):
                 self.pos_deck(deck_number)
+
+    def recovery_color(self):
+        for deck in deck_list:
+            deck.regain_color()
+
+    def update(self):
+        self.click_card()
 
     
     

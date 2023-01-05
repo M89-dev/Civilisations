@@ -14,7 +14,7 @@ image_dir = main_dir + "\\" + "assets\\image"
 music_dir = main_dir + "\\" + "assets\\music"
 font_dir = main_dir + "\\" + "assets\\font"
 
-card_deck = ["card1", "card2", "card3", "card4", "card5"]
+card_deck = ["card1", "card2","card1", "card2", "card2"]
 
 # Check import of initial package pygame (True)
 if not pygame.mixer:
@@ -87,6 +87,10 @@ class Game():
                 if events.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit()
+
+                if events.type == pygame.MOUSEBUTTONDOWN:
+                    self.deck.recovery_color()
+                    self.deck.deck_group.update()
 
             self.screen.blit(self.imgae_board, (0, 0))
             self.deck.deck_group.draw(self.screen)
