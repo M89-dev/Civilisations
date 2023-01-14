@@ -20,7 +20,8 @@
     "Technologies" : [
         {
             "Rampart" : "cards\\Rampart\\c-Rampart.json",
-            "Watchtower" : "cards\\Watchtower\\c-Watchtower.json"
+            "Watchtower" : "cards\\Watchtower\\c-Watchtower.json",
+            "Faith" : "cards\\Faith\\c-Faith.json"
         }
     ]
 }

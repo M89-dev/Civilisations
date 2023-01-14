@@ -1,0 +1,59 @@
+{    
+    "name" : [
+        {
+            "class" : "Technologies",
+            "passif" : true,
+            "civilisation" : false,
+            "life" : 0,
+            "resources" : {
+                "wood" : -30,
+                "stone" : -40,
+                "gold" : -80
+            },
+            "effect" : "5% more units health",
+            "unique" : true
+        },
+
+        {
+            "class" : "Technologies",
+            "passif" : true,
+            "civilisation" : false,
+            "life" : 0,
+            "resources" : {
+                "wood" : -54,
+                "stone" : -72,
+                "gold" : -144
+            },
+            "effect" : "5% more units health",
+            "unique" : true
+        },
+
+        {
+            "class" : "Technologies",
+            "passif" : true,
+            "civilisation" : false,
+            "life" : 0,
+            "resources" : {
+                "wood" : -80,
+                "stone" : -107,
+                "gold" : -214
+            },
+            "effect" : "5% more units health",
+            "unique" : true
+        },
+
+        {
+            "class" : "Technologies",
+            "passif" : true,
+            "civilisation" : false,
+            "life" : 0,
+            "resources" : {
+                "wood" : -109,
+                "stone" : -146,
+                "gold" : -292
+            },
+            "effect" : "5% more units health",
+            "unique" : true
+        }
+    ]
+}
