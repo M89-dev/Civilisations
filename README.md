@@ -30,7 +30,7 @@ The skip let your action place like it is, so you could add new troops the next 
 
 ## Lore
 
-
+*In progress*
 
 ## Contributors  
 
