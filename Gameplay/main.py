@@ -2,7 +2,7 @@ import pygame, os, sys
 from Music import Music_Manager
 from Player import Player
 from Bot import Bot
-from Deck import DeckCard
+from Deck import DeckCard, deck_list
 
 # Pygame initial command (True)
 pygame.init()
@@ -14,7 +14,7 @@ image_dir = main_dir + "\\" + "assets\\image"
 music_dir = main_dir + "\\" + "assets\\music"
 font_dir = main_dir + "\\" + "assets\\font"
 
-card_deck = ["card1", "card2","card1", "card2", "card2"]
+card_deck = ["deck_2", "deck_1", "deck_3"]
 
 # Check import of initial package pygame (True)
 if not pygame.mixer:
@@ -44,8 +44,8 @@ class Game():
         self.game_assets()
 
         # Playist music
-        # self.playist_bg = Music_Manager()
-        # self.playist_bg.play_playist("Playist_bg", 0.2)
+        self.playist_bg = Music_Manager()
+        self.playist_bg.play_playist("Playist_bg", 0.2)
 
     # Function create the card for Player and Bot
     def game_card(self):
@@ -81,6 +81,10 @@ class Game():
 
         self.deck.add_card()
 
+    def deck_draw(self):
+        for deck in deck_list:
+            self.screen.blit(deck.text_render, (deck.rect.x + 20, deck.rect.y + 130))
+
     def game_deck(self):
         while True:
             for events in pygame.event.get():
@@ -93,7 +97,10 @@ class Game():
                     self.deck.deck_group.update()
 
             self.screen.blit(self.imgae_board, (0, 0))
+            print(self.deck.deck_group)
             self.deck.deck_group.draw(self.screen)
+
+            self.deck_draw()
 
             pygame.display.update()
             clock.tick(60)
