@@ -34,6 +34,8 @@ class DeckCard(pygame.sprite.Sprite):
         self.json_dir = os.path.join(os.getcwd(), "cards")
         self.link_json = os.path.join(self.json_dir, "decks.json")
 
+        self.double_click = False
+
     def get_card(self, name_deck):
         with open(self.link_json) as json_file:
             data_file = json.load(json_file)
@@ -58,10 +60,11 @@ class DeckCard(pygame.sprite.Sprite):
             self.now_click = pygame.time.get_ticks()
 
             if self.now_click - self.last_click <= self.double_click_duration:
+                self.double_click = True
                 self.all_card_deck()
             else:
                 self.change_color()
-    
+
             self.last_click = pygame.time.get_ticks()
 
     def pos_deck(self, number_card):

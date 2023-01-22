@@ -29,15 +29,12 @@ class Game():
         self.screen_widht = 1500
         self.screen_height = 800
         self.screen = pygame.display.set_mode((self.screen_widht, self.screen_height))
-        self.game_set = "_deck"
+        self.game_set = "game_deck"
 
         # Initilization of bot and player
         self.player = Player()
         self.bot = Bot()
         self.deck = DeckCard(card_deck)
-
-        self.card_of_deck = Card_of_Deck()
-        self.card_of_deck.add_card()
 
         # Generate the principle card of game
         self.game_card()
@@ -46,6 +43,9 @@ class Game():
         self.intro_assets()
         self.deck_assets()
         self.game_assets()
+
+        self.card_of_deck = Card_of_Deck()
+        self.card_of_deck.add_card()
 
         # Playist music
         self.playist_bg = Music_Manager()
@@ -101,6 +101,15 @@ class Game():
         for deck in deck_list:
             self.screen.blit(deck.text_render, (deck.rect.x + 20, deck.rect.y + 130))
 
+    def click_button(self):
+        for deck in deck_list:
+
+            if deck.double_click:
+                
+                deck.double_click = False
+                return True
+        
+
     def game_deck(self):
         while True:
             for events in pygame.event.get():
@@ -109,8 +118,13 @@ class Game():
                     sys.exit()
 
                 if events.type == pygame.MOUSEBUTTONDOWN:
-                    self.deck.recovery_color()
+                    self.deck.recovery_color()  
                     self.deck.deck_group.update()
+
+                    if self.click_button():
+                        self.game_set = "_deck"
+                        self.manager_game()
+                        
 
             self.screen.blit(self.imgae_board, (0, 0))
             self.deck.deck_group.draw(self.screen)
