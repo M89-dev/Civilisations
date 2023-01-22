@@ -1,5 +1,4 @@
 import pygame, os, json
-from Card_Selector import Card_Selector
 
 deck_list = []
 main_dir = os.path.split(os.path.abspath(__file__))[0]
@@ -115,15 +114,8 @@ class DeckCard(pygame.sprite.Sprite):
             deck.regain_color()
 
     def all_card_deck(self):
-        # Delete deck
-        self.deck_group.empty()
-
         dict_card = self.get_card(self.name_card)
         all_card = dict_card[0]
-        
-        for card in all_card.values():
-            card_of_deck = Card_Selector(0, 0)
-            card_of_deck.add_card()
 
     def update(self):
         self.click_deck()
