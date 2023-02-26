@@ -1,4 +1,4 @@
-import pygame, os
+import pygame, os, json
 
 deck_list = []
 main_dir = os.path.split(os.path.abspath(__file__))[0]
@@ -21,10 +21,31 @@ class DeckCard(pygame.sprite.Sprite):
         
         self.rect.center = (self.screen[0] // 2, self.screen[1] // 2)
 
+        self.double_click_duration = 500
+        self.now_click = 0
+        self.last_click = 0
+
+        self.name_card = None
+        self.position_list = 0
+        self.all_card = None
+
+        self.text_render = None
+
+        self.json_dir = os.path.join(os.getcwd(), "cards")
+        self.link_json = os.path.join(self.json_dir, "decks.json")
+
+        self.double_click = False
+
+    def get_card(self, name_deck):
+        with open(self.link_json) as json_file:
+            data_file = json.load(json_file)
+
+            return data_file[name_deck]
+
     def text_deck(self):
         font_link = os.path.join(font_dir, "PressStart2P-Regular.ttf")
-        intro_text_font = pygame.font.Font(font_link, 80)
-        self.text_render = intro_text_font.render("Civilisations", False, (255, 255, 255))
+        intro_text_font = pygame.font.Font(font_link, 10)
+        self.text_render = intro_text_font.render(self.name_card, False, (255, 255, 255))
 
     def change_color(self):
         self.image.fill((0, 0, 255))
@@ -32,15 +53,25 @@ class DeckCard(pygame.sprite.Sprite):
     def regain_color(self):
         self.image.fill((0, 0, 0))
 
-    def click_card(self):
+    def click_deck(self):
         mouse_pos = pygame.mouse.get_pos()
 
         if self.rect.collidepoint(mouse_pos):
-            self.change_color()
+            self.now_click = pygame.time.get_ticks()
+
+            if self.now_click - self.last_click <= self.double_click_duration:
+                self.double_click = True
+                self.all_card_deck()
+            else:
+                self.change_color()
+
+            self.last_click = pygame.time.get_ticks()
 
     def pos_deck(self, number_card):
         deck = DeckCard(self.list_deck)
-        
+        deck.name_card = self.list_deck[self.position_list]
+        deck.text_deck()
+
         if self.get_indice(number_card):
             deck.rect.right += self.right_deck
             self.right_deck += 150
@@ -50,6 +81,7 @@ class DeckCard(pygame.sprite.Sprite):
 
         deck_list.append(deck)
         self.deck_group.add(deck)
+        self.position_list += 1
 
     def get_indice(self, number):
         if number % 2 == 0:
@@ -58,7 +90,7 @@ class DeckCard(pygame.sprite.Sprite):
             return False
 
     def add_card(self):
-        if len(self.list_deck) % 2 == 0:
+        if self.get_indice(len(self.list_deck)):
             self.right_deck = 80
             self.left_deck = -80
 
@@ -69,6 +101,11 @@ class DeckCard(pygame.sprite.Sprite):
             self.left_deck = -150
 
             deck = DeckCard(self.list_deck)
+            deck.name_card = self.list_deck[self.position_list]
+            deck.text_deck()
+
+            self.position_list += 1
+
             deck_list.append(deck)
             self.deck_group.add(deck)
 
@@ -79,9 +116,9 @@ class DeckCard(pygame.sprite.Sprite):
         for deck in deck_list:
             deck.regain_color()
 
+    def all_card_deck(self):
+        dict_card = self.get_card(self.name_card)
+        all_card = dict_card[0]
+
     def update(self):
-        self.click_card()
-
-    
-    
-
+        self.click_deck()

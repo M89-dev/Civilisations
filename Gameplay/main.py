@@ -2,7 +2,8 @@ import pygame, os, sys
 from Music import Music_Manager
 from Player import Player
 from Bot import Bot
-from Deck import DeckCard
+from Deck import DeckCard, deck_list
+from Card_of_Deck import Card_of_Deck
 
 # Pygame initial command (True)
 pygame.init()
@@ -14,7 +15,7 @@ image_dir = main_dir + "\\" + "assets\\image"
 music_dir = main_dir + "\\" + "assets\\music"
 font_dir = main_dir + "\\" + "assets\\font"
 
-card_deck = ["card1", "card2","card1", "card2", "card2"]
+card_deck = ["deck_2", "deck_1", "deck_3"]
 
 # Check import of initial package pygame (True)
 if not pygame.mixer:
@@ -28,7 +29,7 @@ class Game():
         self.screen_widht = 1500
         self.screen_height = 800
         self.screen = pygame.display.set_mode((self.screen_widht, self.screen_height))
-        self.game_set = "deck_assets"
+        self.game_set = "game_deck"
 
         # Initilization of bot and player
         self.player = Player()
@@ -43,9 +44,12 @@ class Game():
         self.deck_assets()
         self.game_assets()
 
+        self.card_of_deck = Card_of_Deck()
+        self.card_of_deck.add_card()
+
         # Playist music
-        # self.playist_bg = Music_Manager()
-        # self.playist_bg.play_playist("Playist_bg", 0.2)
+        self.playist_bg = Music_Manager()
+        self.playist_bg.play_playist("Playist_bg", 0.2)
 
     # Function create the card for Player and Bot
     def game_card(self):
@@ -79,7 +83,32 @@ class Game():
         self.imgae_board = pygame.image.load(link_board)
         self.imgae_board = pygame.transform.scale(self.imgae_board, (1500, 800))
 
+        link_button_start = os.path.join(image_dir, "button_display.png")
+        link_button_return = os.path.join(image_dir, "button_display.png")
+
+        self.button_start = pygame.image.load(link_button_start)
+        self.button_return = pygame.image.load(link_button_return)
+
+        self.button_start_rect = self.button_start.get_rect()
+        self.button_return_rect = self.button_return.get_rect()
+
+        self.button_start_rect.topleft = (100, self.screen_height - 350)
+        self.button_return_rect.topright = (self.screen_widht - 100, self.screen_height - 350)  
+
         self.deck.add_card()
+
+    def deck_draw(self):
+        for deck in deck_list:
+            self.screen.blit(deck.text_render, (deck.rect.x + 20, deck.rect.y + 130))
+
+    def click_button(self):
+        for deck in deck_list:
+
+            if deck.double_click:
+                
+                deck.double_click = False
+                return True
+        
 
     def game_deck(self):
         while True:
@@ -89,11 +118,45 @@ class Game():
                     sys.exit()
 
                 if events.type == pygame.MOUSEBUTTONDOWN:
-                    self.deck.recovery_color()
+                    self.deck.recovery_color()  
                     self.deck.deck_group.update()
+
+                    if self.click_button():
+                        self.game_set = "_deck"
+                        self.manager_game()
+                        
 
             self.screen.blit(self.imgae_board, (0, 0))
             self.deck.deck_group.draw(self.screen)
+
+            self.deck_draw()
+
+            pygame.display.update()
+            clock.tick(60)
+
+    def _deck(self):
+        while True:
+            for events in pygame.event.get():
+                if events.type == pygame.QUIT:
+                    pygame.quit()
+                    sys.exit()
+
+                if events.type == pygame.MOUSEBUTTONDOWN:
+                    pos_mouse = pygame.mouse.get_pos()
+
+                    if self.button_start_rect.collidepoint(pos_mouse):
+                        self.game_set = "game_playing"
+                        self.manager_game()
+                    
+                    elif self.button_return_rect.collidepoint(pos_mouse):
+                        self.game_set = "game_deck"
+                        self.manager_game()
+
+            self.screen.blit(self.imgae_board, (0, 0))
+            self.card_of_deck.card_group.draw(self.screen)
+
+            self.screen.blit(self.button_start, self.button_start_rect)
+            self.screen.blit(self.button_return, self.button_return_rect)
 
             pygame.display.update()
             clock.tick(60)
@@ -109,7 +172,7 @@ class Game():
                     pos_mouse = pygame.mouse.get_pos()
 
                     if self.button_play_rect.collidepoint(pos_mouse):
-                        self.game_set = "game_playing"
+                        self.game_set = "game_deck"
                         self.manager_game()
 
             self.screen.blit(self.imgae_bg, (0, 0))
@@ -149,8 +212,10 @@ class Game():
     def manager_game(self):
         if self.game_set == "game_playing":
             self.game_playing()
-        elif self.game_set == "deck_assets":
+        elif self.game_set == "game_deck":
             self.game_deck()
+        elif self.game_set == "_deck":
+            self._deck()
         else:
             self.game_menu()
 
